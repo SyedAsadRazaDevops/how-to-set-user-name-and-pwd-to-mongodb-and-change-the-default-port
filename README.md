@@ -89,3 +89,5 @@ db.dropUser("reportUser1", {w: "majority", wtimeout: 5000})
 
 
 [LINK]:https://stackoverflow.com/questions/4881208/how-to-secure-mongodb-with-username-and-password
+
+[LINK]:https://severalnines.com/blog/how-secure-mongodb-ransomware-ten-tips
