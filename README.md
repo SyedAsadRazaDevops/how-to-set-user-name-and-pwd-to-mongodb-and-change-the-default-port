@@ -3,6 +3,7 @@ I want to set up user name & password authentication for my MongoDB instance,
 
 >Short answer.
 **#1**
+
 Start MongoDB without access control.
 ```
 mongod --dbpath /data/db
@@ -34,7 +35,7 @@ enable it by remove the **#** comment
 security:
   authorization: enabled
 ```
-
+**#2**
 **Now** : Stop the MongoDB instance and start it again with access control.
 >in case of **error** these commands will help you!
 ```
@@ -48,4 +49,43 @@ Reload the **Auth**
 mongosh --auth --port 27017
 mongo --auth --port 27017
 ```
-Connect and authenticate as the user.
+Connect and authenticate as the **User**.
+```
+use <your_desire_db_name>
+```
+enter your pwd on the promtconsole
+```
+db.auth("myDBOwne", passwordPrompt())
+```
+**check** the previleges my show the list of data, use this command.**if** it show the collection its mean you are in goodorder **else** you make mistake in above sections.
+```
+show collections
+```
+**if**, you are connecting mongodb to the **laravel application** use this connection type:
+```
+DB_DSN=mongodb://username:password@127.0.0.1:27017/lab
+
+DB_DSN=mongodb://myDBOwne:XXX-XXX-XXX-X@127.0.0.1:27017/lab
+```
+
+
+
+For Additional information
+__________________________________________________________________________
+for **change the pwd** use this:
+```
+use <your_desire_db_name>
+db.changeUserPassword("myDBOwner", "xxx-xxx-xxx-x")
+````
+for **del / remove user** use this:
+```
+use <your_desire_db_name>
+db.dropUser("reportUser1")
+```
+```
+use products
+db.dropUser("reportUser1", {w: "majority", wtimeout: 5000})
+```
+
+
+[LINK]:https://stackoverflow.com/questions/4881208/how-to-secure-mongodb-with-username-and-password
