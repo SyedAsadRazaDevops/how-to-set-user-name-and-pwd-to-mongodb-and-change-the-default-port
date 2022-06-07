@@ -14,14 +14,15 @@ mongo
 ```
 Create the **user**.
 ```
+use admin
 db.createUser({
-    user:"userAdminDBs",
+    user:"userAdminAnyDatabase",
     pwd:"xxxxxxxxxx",
     roles:[{role:"userAdminAnyDatabase", db:"admin"}]
 })
 use <your_desire_db_name>
 db.createUser({
-    user:"myDBOwner",
+    user:"dbOwner",
     pwd:"xxxxxxxxxx",
     roles:[{role:"dbOwner", db:"<your_desire_db_name>"}]
 })
@@ -80,7 +81,7 @@ db.changeUserPassword("myDBOwner", "xxx-xxx-xxx-x")
 for **del / remove user** use this:
 ```
 use <your_desire_db_name>
-db.dropUser("reportUser1")
+db.dropUser("dbOwner")
 ```
 ```
 use products
