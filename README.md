@@ -64,9 +64,9 @@ show collections
 ```
 **if**, you are connecting mongodb to the **laravel application** use this connection type:
 ```
-DB_DSN=mongodb://username:password@127.0.0.1:27017/lab
+DB_DSN=mongodb://username:password@127.0.0.1:27017/<YOU-DB-NAME>
 
-DB_DSN=mongodb://myDBOwne:XXX-XXX-XXX-X@127.0.0.1:27017/lab
+DB_DSN=mongodb://myDBOwne:XXX-XXX-XXX-X@127.0.0.1:27017/<YOU-DB-NAME>
 ```
 
 
