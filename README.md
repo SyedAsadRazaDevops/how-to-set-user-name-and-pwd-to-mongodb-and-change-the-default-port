@@ -88,6 +88,30 @@ use products
 db.dropUser("reportUser1", {w: "majority", wtimeout: 5000})
 ```
 
+__________________________________________________________________________
+
+### to make coonection with your mongodb server:
+
+The default /etc/mongod.conf file has this entry for network interfaces:
+```
+# network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1
+```
+To expose the database running in a VM to the host, it's simplest to bind the database to all interfaces for testing purposes.
+```
+# network interfaces
+net:
+  port: 27017
+  bindIpAll: true
+```
+**Notice** the bindIp parameter is removed.
+
+
+
+
+
 
 [LINK]:https://stackoverflow.com/questions/4881208/how-to-secure-mongodb-with-username-and-password
 
